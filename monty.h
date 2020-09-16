@@ -40,6 +40,11 @@ typedef struct instruction_s
  * @size: size of double linked list
  * @head: pointer to the head of double linked list
  * @tail: pointer to the tail of double linked list
+ * @ln: lenght
+ * @fd: File to opened
+ * @buffer: buffer of the line introduced
+ * @intarg: Number to insert in the stack or queue
+ * @mode: Mode, either stack or queue
  */
 typedef struct dlist_s
 {

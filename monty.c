@@ -9,7 +9,7 @@ void dlist_destroy(void)
 	if (gs.fd == NULL)
 		fclose(gs.fd);
 	if (gs.buffer != NULL)
-		free(gs.buffer);		
+		free(gs.buffer);
 }
 /**
  * main - simulation of monty language
@@ -32,9 +32,9 @@ int main(int ac, char **av)
 	if (FD  == NULL)
 	{
 		myexit(-2, av[1]);
-	}	
+	}
 	gs.fd = FD;
-	while (glcount =! -1)
+	while (glcount != -1)
 	{
 		gs.ln++;
 		glcount = getline(&buffer, &buffln, FD);
@@ -44,5 +44,5 @@ int main(int ac, char **av)
 		run_opcode(buffer);
 	}
 	dlist_destroy();
-	return(EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

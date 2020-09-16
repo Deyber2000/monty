@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
- * run_opcode - execute the fucntion that correspond to 
- * the command introced.
- * @buf: Line of opcode taken from the file
- * Return: 0 if it is an empty line or a comment
+ *run_opcode - execute the fucntion that correspond to
+ *the command introced.
+ *@buf: Line of opcode taken from the file
+ *Return: 0 if it is an empty line or a comment
  **/
 int run_opcode(char *buf)
 {
@@ -19,7 +19,7 @@ int run_opcode(char *buf)
 	int intarg = 0;
 
 	opcode = strtok(buf, delim);
-	if (opcode == NULL || opcode == 'x')/* If ther is an empty line or a comment  */
+	if (opcode == NULL || opcode == 'x')/*If ther is an empty line or a comment*/
 		return (0);
 	for (i = 0, cmd[i].f != NULL; i++)
 	{
@@ -30,7 +30,7 @@ int run_opcode(char *buf)
 				argint = strtok(NULL, delim);
 				intarg = chk_int(argint);
 				if (intarg == -4)
-					myexit(-4, NULL);	
+					myexit(-4, NULL);
 			}
 			cmd[i].f(NULL, 0);/* Call respective function */
 			break;
@@ -52,26 +52,32 @@ void myexit(int code, char *string)
 	switch (code)
 	{
 		case 1:
-			printf("USAGE: monty file\n"); break;
+			printf("USAGE: monty file\n");
+			break;
 		case 2:
-			printf("Error: Can't open file %s\n", string); break;
+			printf("Error: Can't open file %s\n", string);
+			break;
 		case 3:
 			printf("L%d: unknown instruction %s\n", gs.ln, string);
 			break;
 		case 4:
-			printf("L%d: usage: push integer\n", gs.ln); break;
+			printf("L%d: usage: push integer\n", gs.ln);
+			break;
 		case 5:
-			printf("Error: malloc failed\n"); break;
+			printf("Error: malloc failed\n");
+			break;
 		case 6:
 			printf("L%d: can't %s, stack empty\n", gs.ln, string);
 			break;
 		case 7:
-			printf("L%d: can't pop an empty stack\n", gs.ln); break;
+			printf("L%d: can't pop an empty stack\n", gs.ln);
+			break;
 		case 8:
 			printf("L%d: can't %s, stack too short\n", gs.ln, string);
 			break;
 		case 9:
-			printf("L%d: division by zero\n", gs.ln); break;
+			printf("L%d: division by zero\n", gs.ln);
+			break;
 		case 10:
 			printf("L%d: can't pchar, value out of range\n", gs.ln);
 			break;

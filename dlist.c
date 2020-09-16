@@ -4,8 +4,8 @@
  **/
 void d_listinit(void)
 {
-	gs.size = 0; 
-	gs.ln = 0; 
+	gs.size = 0;
+	gs.ln = 0;
 	gs.head = NULL;
 	gs.tail = NULL;
 	gs.fd = NULL; /*File descriptor */
