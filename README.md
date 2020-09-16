@@ -22,7 +22,7 @@ Building and installing this Monty interpreter is simple.
 Start by cloning the repo from github into your desired directory.
 
 ```
-$ git clone https://github.com/Haroldov/monty.git
+$ git clone https://github.com/Deyber2000/monty.git
 ```
 
 Next, build the files using `gcc`.
