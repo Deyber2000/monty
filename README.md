@@ -137,18 +137,18 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 <li>If the stack is empty, print <code>L&lt;line_number&gt;: can&#39;t pint, stack empty</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/06.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/06.m
 push 1
 pint
 push 2
 pint
 push 3
 pint
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/06.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/06.m
 1
 2
 3
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
 
   <h4 class="task">
@@ -173,7 +173,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 <li>if the stack is empty, print <code>L&lt;line_number&gt;: can&#39;t pop an empty stack</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/07.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/07.m
 push 1
 push 2
 push 3
@@ -184,14 +184,14 @@ pop
 pall
 pop
 pall
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/07.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/07.m
 3
 2
 1
 2
 1
 1
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
 
   <h4 class="task">
@@ -213,24 +213,24 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 
 <ul>
 <li>Usage: <code>swap</code></li>
-<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t swap, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t swap, stack too short</code>,followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/09.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/09.m
 push 1
 push 2
 push 3
 pall
 swap
 pall
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/09.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/09.m
 3
 2
 1
 2
 3
 1
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
 
   <h4 class="task">
@@ -252,7 +252,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 
 <ul>
 <li>Usage: <code>add</code></li>
-<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t add, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t add, stack too short</code>,followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
 <li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
 
 <ul>
@@ -261,7 +261,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </ul></li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/12.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/12.m
 push 1
 push 2
 push 3
@@ -269,7 +269,7 @@ pall
 add
 pall
 
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/12.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/12.m
 3
 2
 1
@@ -318,7 +318,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 
 <ul>
 <li>Usage: <code>sub</code></li>
-<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t sub, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t sub, stack too short</code>,followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
 <li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
 
 <ul>
@@ -327,14 +327,14 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </ul></li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/19.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/19.m
 push 1
 push 2
 push 10
 push 3
 sub
 pall
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/19.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/19.m
 7
 2
 1
@@ -360,7 +360,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 
 <ul>
 <li>Usage: <code>div</code></li>
-<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t div, stack too short</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>If the stack is less than two element long, print <code>L&lt;line_number&gt;: can&#39;t div, stack too short</code>,followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
 <li>The result is stored in the second top element of the stack, and the top element is removed, so that at the end:
 
 <ul>
@@ -413,7 +413,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 
 <p><strong>The mod opcode</strong></p>
 
-<p>The opcode <code>mod</code> computes the rest of the division of the second top element of the stack by the top element of the stack.</p>
+<p>The opcode <code>mod</code> computes the rest of the division of the second top element of the stack by the top elementof the stack.</p>
 
 <ul>
 <li>Usage: <code>mod</code></li>
@@ -461,13 +461,13 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 <li>Usage: <code>pchar</code></li>
 <li>The integer stored at the top of the stack is treated as the ascii value of the character to be printed</li>
 <li>If the value is not in the ascii table (man ascii) print <code>L&lt;line_number&gt;: can&#39;t pchar, value out of range</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
-<li>If the stack is empty, print <code>L&lt;line_number&gt;: can&#39;t pchar, stack empty</code>, followed by a new line, and exit with the status <code>EXIT_FAILURE</code></li>
+<li>If the stack is empty, print <code>L&lt;line_number&gt;: can&#39;t pchar, stack empty</code>, followed by a new line,and exit with the status <code>EXIT_FAILURE</code></li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/28.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/28.m
 push 72
 pchar
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/28.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/28.m
 H
 julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
@@ -502,7 +502,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 <li>If the stack is empty, print only a new line</li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/31.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/31.m
 push 1
 push 2
 push 3
@@ -520,9 +520,9 @@ push 108
 push 111
 push 72
 pstr
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/31.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/31.m
 Holberton
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
 
   <h4 class="task">
@@ -548,7 +548,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 <li><code>rotl</code> never fails</li>
 </ul>
 
-<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/35.m 
+<pre><code>julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ cat bytecodes/35.m
 push 1
 push 2
 push 3
@@ -562,7 +562,7 @@ push 0
 pall
 rotl
 pall
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/35.m 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/35.m
 0
 9
 8
@@ -583,7 +583,7 @@ julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ ./monty bytecodes/35.m
 2
 1
 0
-julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$ 
+julien@ubuntu:~/0x18. Stack (LIFO) &amp; queue (FIFO)$
 </code></pre>
 
   <h4 class="task">
