@@ -1,44 +1,43 @@
 #include "monty.h"
 /**
- *run_opcode - execute the fucntion that correspond to
- *the command introced.
- *@buf: Line of opcode taken from the file
- *Return: 0 if it is an empty line or a comment
- **/
+ * run_opcode - searches line for commands and executes them
+ * @buf: line of opcode taken from from file
+ * Return: 0 if empty line or comment.
+ */
 int run_opcode(char *buf)
 {
-	instruction_s cmd[] = {
+	instruction_t cmd[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
 		{"swap", swap}, {"add", _add}, {"nop", nop}, {"sub", _sub},
 		{"mul", _mul}, {"div", _div}, {"mod", _mod}, {"rotl", rotl},
 		{"rotr", rotr}, {"pchar", pchar}, {"pstr", pstr}, {"queue", chgmode},
 		{"stack", chgmode}, {NULL, NULL}
 	};
-	char *opcode, *argint, *delim = "\t\n\r";
+	char *opcode, *argint, *delim = " \t\n\r";
 	unsigned int i;
 	int intarg = 0;
 
 	opcode = strtok(buf, delim);
-	if (opcode == NULL || opcode == 'x')/*If ther is an empty line or a comment*/
+	if (opcode == NULL || opcode[0] == '#')/*if empty line or comment*/
 		return (0);
-	for (i = 0, cmd[i].f != NULL; i++)
+	for (i = 0; cmd[i].f != NULL; i++)
 	{
 		if (strcmp(opcode, cmd[i].opcode) == 0)
 		{
 			if (i == 0)
 			{
 				argint = strtok(NULL, delim);
-				intarg = chk_int(argint);
-				if (intarg == -4)
+				intarg = chk_int(argint);/*chk int arg*/
+				if (intarg == -4)/*push arg is not int*/
 					myexit(-4, NULL);
 			}
-			cmd[i].f(NULL, 0);/* Call respective function */
+			cmd[i].f(NULL, 0);/*call respective funciton*/
 			break;
-
 		}
 	}
-	if (cmd[i].f == NULL)
+	if (cmd[i].f == NULL)/*IF NO MATCH*/
 		myexit(-3, opcode);
+
 	return (0);
 }
 /**
@@ -52,32 +51,26 @@ void myexit(int code, char *string)
 	switch (code)
 	{
 		case 1:
-			printf("USAGE: monty file\n");
-			break;
+			printf("USAGE: monty file\n"); break;
 		case 2:
-			printf("Error: Can't open file %s\n", string);
-			break;
+			printf("Error: Can't open file %s\n", string); break;
 		case 3:
 			printf("L%d: unknown instruction %s\n", gs.ln, string);
 			break;
 		case 4:
-			printf("L%d: usage: push integer\n", gs.ln);
-			break;
+			printf("L%d: usage: push integer\n", gs.ln); break;
 		case 5:
-			printf("Error: malloc failed\n");
-			break;
+			printf("Error: malloc failed\n"); break;
 		case 6:
 			printf("L%d: can't %s, stack empty\n", gs.ln, string);
 			break;
 		case 7:
-			printf("L%d: can't pop an empty stack\n", gs.ln);
-			break;
+			printf("L%d: can't pop an empty stack\n", gs.ln); break;
 		case 8:
 			printf("L%d: can't %s, stack too short\n", gs.ln, string);
 			break;
 		case 9:
-			printf("L%d: division by zero\n", gs.ln);
-			break;
+			printf("L%d: division by zero\n", gs.ln); break;
 		case 10:
 			printf("L%d: can't pchar, value out of range\n", gs.ln);
 			break;

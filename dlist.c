@@ -1,17 +1,17 @@
 #include "monty.h"
 /**
- * d_listinit - initialize a doubly linked list
- **/
-void d_listinit(void)
+ * dlist_init - initializes doubly linked list
+ */
+void dlist_init(void)
 {
 	gs.size = 0;
 	gs.ln = 0;
 	gs.head = NULL;
 	gs.tail = NULL;
-	gs.fd = NULL; /*File descriptor */
+	gs.fd = NULL;
 	gs.buffer = NULL;
 	gs.intarg = 0;
-	gs.mode = 1; /* Stack mode */
+	gs.mode = 1;
 }
 /**
  * dlist_remove - removes node from doubly linked list
