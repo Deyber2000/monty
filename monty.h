@@ -1,11 +1,28 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
+#ifndef __MONTY__
+#define __MONTY__
 
-#include <ctype.h> /*isdigit*/
 #include <stdio.h>
-#include <string.h> /*strtok*/
 #include <stdlib.h>
-#include <unistd.h> /*atexit*/
+#include <string.h>
+#define LN unsigned int line_number
+
+/**
+ *struct carrier_s - auxiliar structure
+ *@data: data to be inserted into stack or queue
+ *@words: pointer to be freed
+ *@line: pointer to be free
+ *@stream: file to be closed if one fails
+ *@state: indicates whether is a stack (0) or a queue (1)
+ */
+
+typedef struct carrier_s
+{
+	int data;
+	char **words;
+	char *line;
+	FILE *stream;
+	int state;
+} carrier_t;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -16,81 +33,73 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO Holberton project
  */
+
 typedef struct stack_s
 {
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
+
 /**
- * struct instruction_s - opcoode and its function
+ * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO Holberton project
  */
+
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, LN);
 } instruction_t;
-/**
- * struct dlist_s - global structure to hold data
- * @size: size of double linked list
- * @head: pointer to the head of double linked list
- * @tail: pointer to the tail of double linked list
- * @ln: lenght
- * @fd: File to opened
- * @buffer: buffer of the line introduced
- * @intarg: Number to insert in the stack or queue
- * @mode: Mode, either stack or queue
- */
-typedef struct dlist_s
-{
-	size_t size;
-	unsigned int ln;
-	stack_t *head;
-	stack_t *tail;
-	FILE *fd;
-	void *buffer;
-	int intarg;
-	int mode;
-} dlist_t;
 
-extern dlist_t gs;
+/*Global Variables*/
+extern carrier_t carrier;
 
-/* dlist.c */
-void dlist_init(void);
-void dlist_destroy(void);
-int dlist_ins_end(const int data);
-int dlist_ins_beg(const int data);
-int dlist_remove(stack_t *node);
+/*Prototypes*/
 
-/* run_opcode.c */
-int run_opcode(char *buf);
-void myexit(int code, char *string);
-int chk_int(const char *argint);
-void nop(stack_t **stack, unsigned int data);
+/*dlinkedlist#1*/
+void free_dlistint(stack_t *head);
+size_t dlistint_len(const stack_t *h);
+size_t print_dlistint(const stack_t *h);
+stack_t *add_dnodeint(stack_t **head, int n);
+void delete_head(stack_t **dlistint_t);
 
-/* functions.c */
-void push(stack_t **stack, unsigned int data);
-void pint(stack_t **stack, unsigned int data);
-void pall(stack_t **stack, unsigned int data);
-void pop(stack_t **stack, unsigned int data);
-void swap(stack_t **stack, unsigned int data);
+/*dlinkedlist#2*/
+stack_t *rev_dlistint(stack_t **h);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
 
-/* functions3.c */
-void rotl(stack_t **head, unsigned int data);
-void rotr(stack_t **head, unsigned int data);
-void pchar(stack_t **head, unsigned int data);
-void pstr(stack_t **head, unsigned int data);
-void chgmode(stack_t **head, unsigned int data);
+/*monty_ops#1*/
+void op_push(stack_t **stack, unsigned int line);
+void op_pall(stack_t **dlinkedlist, unsigned int line);
+void op_pint(stack_t **dlinkedlist, unsigned int line);
+void op_swap(stack_t **dlinkedlist, unsigned int line);
+void op_pop(stack_t **dlinkedlist, unsigned int line_num);
 
-/* mathFunc.c */
-void _add(stack_t **head, unsigned int data);
-void _sub(stack_t **head, unsigned int data);
-void _div(stack_t **head, unsigned int data);
-void _mod(stack_t **head, unsigned int data);
-void _mul(stack_t **head, unsigned int data);
-#endif /* _MONTY_H_ */
+/*monty_ops#2*/
+void op_nop(stack_t **dlinkedlist, unsigned int line);
+void op_div(stack_t **dlinkedlist, unsigned int line);
+void op_mod(stack_t **dlinkedlist, unsigned int line);
+void op_add(stack_t **dlinkedlist, unsigned int line_num);
+void op_pchar(stack_t **dlinkedlist, unsigned int line_num);
+
+/*monty_ops#3*/
+void op_sub(stack_t **dlinkedlist, unsigned int line_num);
+void op_mul(stack_t **dlinkedlist, unsigned int line_num);
+void op_stack(stack_t **dlinkedlist, unsigned int line_num);
+void op_queue(stack_t **dlinkedlist, unsigned int line_num);
+void op_pstr(stack_t **dlinkedlist, unsigned int line_num);
+
+/*monty_ops#4*/
+void op_rotl(stack_t **dlinkedlist, unsigned int line_num);
+void op_rotr(stack_t **dlinkedlist, unsigned int line_num);
+
+/*main*/
+char **split(char *str, const char *delim);
+void (*get_op(char *command, LN))(stack_t **stack, LN);
+int check_if_not_num(char *str);
+
+#endif
