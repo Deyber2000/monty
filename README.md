@@ -43,10 +43,3 @@ $ ./monty a_monty_file.m
 3
 2
 1
-```
-
-## Authors
-
-Haroldo Vélez - [Haroldov](https://github.com/Haroldov)
-
-Ryan Hudson - [ryanhudson](https://github.com/ryanhudson)
